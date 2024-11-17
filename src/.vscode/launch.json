@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Debug mppi.py",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/mppi.py",  // Update this path if your file has a different name or location
+            "console": "integratedTerminal",
+            "python": "/home/jblevins32/anaconda3/envs/a1_env/bin/python",  // Update this with your environment path
+            "justMyCode": true,
+            "args": []
+        }
+    ]
+}
