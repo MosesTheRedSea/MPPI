@@ -34,6 +34,7 @@ class MPPI():
 
     def set_goal(self, x, y):
         self.goal = (x, y)
+        
     def generate_path(self):
         # MPPI implementation
         test=1
