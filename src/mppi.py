@@ -35,6 +35,22 @@ class MPPI():
     def set_goal(self, x, y):
         self.goal = (x, y)
         
+    def set_start(self, x, y):
+        self.start = (x, y)
+
+    def cost_function(self, position, control):
+        distance_cost = np.linalg.norm(position - self.goal)  # linalg.norm is the euclidean distance
+
+        collision_cost = 0
+        if position[0] < 0 or position[0] >= self.cost_map.shape[0] or position[1] < 0 or position[1] >= self.cost_map.shape[1]:
+            collision_cost = 1e6
+        else:
+            collision_cost = self.cost_map[position[0], position[1]]
+
+        control_cost = np.linalg.norm(control) ** 2  # penalize large control inputs
+
+        return distance_cost + collision_cost + 0.1 * control_cost
+
     def generate_path(self):
         # MPPI implementation
         test=1
