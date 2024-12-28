@@ -14,4 +14,4 @@ This MPPI implementation,[based on this paper](https://ieeexplore.ieee.org/stamp
   - `annimation.py`: Annimation of the process
 
 ## Output Examples
-
+![Example Image](images/gaussian.png "This is an example image")
