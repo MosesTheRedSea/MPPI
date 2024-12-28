@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from obstacle_hit import *
 
 '''
 This class generates a matplotlib annimation of the MPPI controller. It can easily be generalized to other motion planning, given a costmap and a discrete state space.
@@ -19,6 +20,7 @@ class animate():
         self.cost_map = cost_map
         self.position = np.array(start)
         self.monte_carlo = []
+        self.num_obs_hit = 0
         
         # Show initial map
         self.fig, self.ax = plt.subplots()
@@ -28,22 +30,27 @@ class animate():
         self.ax.scatter(goal[1], goal[0], color='red', linewidth=3)  # Swap x and y
         plt.pause(5)
         
-    def move(self, position):
+    def move(self, cost_map, position):
         
+        # Check for how many obstacles are hit and notify operator
+        if ObstacleHit(cost_map, position):
+            self.num_obs_hit += 1
+            print(f'An obstacle was hit! A total of {self.num_obs_hit} collisions have occured.')
+                
         # Limit the viewing window to around the robot
-        x = position[0]
-        y = position[1]
-        self.ax.scatter(x,y,color='green',linewidth = 2)
-        plt.xlim(x-20,x+20)
-        plt.ylim(y-20,y+20)
-        plt.pause(.5)
+        self.x = position[0]
+        self.y = position[1]
+        self.ax.scatter(self.x,self.y,color='green',linewidth = 2)
+        plt.xlim(self.x-20,self.x+20)
+        plt.ylim(self.y-20,self.y+20)
+        plt.pause(.0001)
         
     def predict(self, prediction, cost):
         
         self.monte_carlo = np.concatenate((self.position.reshape(1,2), prediction.reshape(1,2)),axis=0)
         x_coord = self.monte_carlo[:,0]
         y_coord = self.monte_carlo[:,1]
-        self.ax.plot(x_coord,y_coord,color='yellow')
+        self.ax.plot(x_coord,y_coord,color='white',alpha = 0.1)
         
         # Set the prediction as the new position
         self.position = prediction
