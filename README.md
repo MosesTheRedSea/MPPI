@@ -31,4 +31,4 @@ This MPPI implementation,[based on this paper](https://ieeexplore.ieee.org/stamp
 ![regular](images/regular.png "This is an example image")
 ![wall](images/wall.png "This is an example image")
 With gaussian splatter pathing shown
-![gaussian2](images/gaussian.png "This is an example image")
+![gaussian2](images/gaussian2.png "This is an example image")
