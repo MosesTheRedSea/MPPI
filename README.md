@@ -12,6 +12,10 @@ This MPPI implementation,[based on this paper](https://ieeexplore.ieee.org/stamp
 - `src`: Python implmentation for logic testing
   - `mppi.py`: Whole MPPI algorithm
   - `annimation.py`: Annimation of the process
+ 
+## TODO
+- Incorporate actual robot dynamics with non-holonomic drivetrain
+- Implement in cpp with ROS
 
 ## Output Examples
 ![regular](images/regular.png "This is an example image")
