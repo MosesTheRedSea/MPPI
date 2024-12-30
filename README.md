@@ -7,6 +7,10 @@ This MPPI implementation,[based on this paper](https://ieeexplore.ieee.org/stamp
 - Path integral: The chosen control command is a weighted sum of all the monte carlo paths
 - A temperature value is provided to encourage exploration or exploitation
 - The control command is applied to the robot and the process is repeated
+- All-in-all, the control is the minimization of the expected cost of a trajectory weighted and combined with other trajectories:
+$$
+\mathbf{u}^*(\cdot) = \arg\min_{\mathbf{u}(\cdot)} \mathbb{E}_Q \left[ \phi(\mathbf{x}_T, T) + \int_{t_0}^T \mathcal{L}(\mathbf{x}_t, \mathbf{u}_t, t) \, dt \right]
+$$
 - Note: The annimation may show slight overlap of robot and obstacle without detecting a collision. This is because of the drawing function giving an extra 0.5 width overlap from the actual obstacle border
 
 ## File Structure
