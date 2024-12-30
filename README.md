@@ -33,3 +33,5 @@ This MPPI implementation,[based on this paper](https://ieeexplore.ieee.org/stamp
 ![wall](images/wall.png "This is an example image")
 With gaussian splatter pathing shown
 ![gaussian](images/gaussian3.png "This is an example image")
+Current issue of agent getting stuck
+![stuck](images/stuck.png "This is an example image")

@@ -231,7 +231,7 @@ class MPPI():
 def main():
     
     # Generate costmap and make obstacles
-    mppi_obj = MPPI(grid_size=100,prediction_horizon=10, monte_carlo_iters=50,draw_preds=True)
+    mppi_obj = MPPI(grid_size=100,prediction_horizon=7, monte_carlo_iters=50,draw_preds=False,lambda_=1)
     
     mppi_obj.set_start(10, 10)
     mppi_obj.set_goal(90, 90)
