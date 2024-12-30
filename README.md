@@ -4,7 +4,8 @@ This MPPI implementation,[based on this paper](https://ieeexplore.ieee.org/stamp
 ## How it works
 - The algorithm utilizes a monte carlo procedure by producing random noise (gaussian splatter) over a model prediction horizon
 - Cost is calculated for each path in the set of paths based on a model of the robot
-- The chosen control command is a weighted sum of all the monte carlo paths
+- Path integral: The chosen control command is a weighted sum of all the monte carlo paths
+- A temperature value is provided to encourage exploration or exploitation
 - The control command is applied to the robot and the process is repeated
 - Note: The annimation may show slight overlap of robot and obstacle without detecting a collision. This is because of the drawing function giving an extra 0.5 width overlap from the actual obstacle border
 
