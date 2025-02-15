@@ -4,7 +4,9 @@ from animation import animate
 from obstacle_hit import *
 
 class MPPI():
+
     def __init__(self, grid_size, prediction_horizon, monte_carlo_iters, num_samples=10, num_iterations=20, lambda_ = 1, draw_preds=True):
+        
         self.cost_map = np.zeros([grid_size,grid_size])
         self.num_samples = num_samples
         self.num_iterations = num_iterations
@@ -68,7 +70,7 @@ class MPPI():
         
         # Assign goal
         self.goal = (x, y)
-        
+    
     def set_start(self, x, y):
         # Check if the start is on the map
         assert (0 <= x < self.grid_size) and (0 <= y < self.grid_size), 'Start is not on the map.'
@@ -76,6 +78,12 @@ class MPPI():
         # Assign the goal
         self.start = (x, y)
 
+    """
+    ▀█▀ ░█▄─░█ ░█▀▀█ ░█▀▀▀█ ░█▀▀█ ░█▀▀█ ░█▀▀▀ ░█▀▀█ ▀▀█▀▀ 　 ▀█▀ ░█▄─░█ ░█▀▀▄ ░█▀▀▀ ▀▄░▄▀ ░█▀▀▀ ░█▀▀▀█ 
+    ░█─ ░█░█░█ ░█─── ░█──░█ ░█▄▄▀ ░█▄▄▀ ░█▀▀▀ ░█─── ─░█── 　 ░█─ ░█░█░█ ░█─░█ ░█▀▀▀ ─░█── ░█▀▀▀ ─▀▀▀▄▄ 
+    ▄█▄ ░█──▀█ ░█▄▄█ ░█▄▄▄█ ░█─░█ ░█─░█ ░█▄▄▄ ░█▄▄█ ─░█── 　 ▄█▄ ░█──▀█ ░█▄▄▀ ░█▄▄▄ ▄▀░▀▄ ░█▄▄▄ ░█▄▄▄█
+        """
+    
     def cost_function(self, position, former_position, control):
         
         # For some reason the costmap is flipped. Spent 2 hours trying to figure out the plotting.
@@ -160,7 +168,7 @@ class MPPI():
             self.stuck_multiplier = -1
         else:
             self.stuck_multiplier = 1
-
+    
     def generate_path(self):
         # MPPI implementation
         position = self.start
