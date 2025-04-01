@@ -1,5 +1,5 @@
 # Model Predictive Path Integral Control
-This MPPI implementation,[based on this paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7487277), is for application to the RoboJackets RoboNav rover.
+This MPPI implementation, [based on this paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7487277) is for application to the RoboJackets RoboNav rover.
 
 ## How it works
 - The algorithm utilizes a monte carlo procedure by producing random noise (gaussian splatter) over a model prediction horizon
