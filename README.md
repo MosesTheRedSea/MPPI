@@ -1,4 +1,7 @@
 # Model Predictive Path Integral Control
+
+![mppi](https://github.com/MosesTheRedSea/MPPI/blob/master/mppi_demo.gif)
+
 This MPPI implementation, [based on this paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7487277) is for application to the RoboJackets RoboNav rover.
 
 ## How it works
